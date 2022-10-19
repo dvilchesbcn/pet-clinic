@@ -60,3 +60,10 @@ steps:
       sudo dpkg -i trivy_0.27.1_Linux-64bit.deb
       trivy image dvilchesbcn/pet-clinic:latest
     displayName: Image Scan
+
+  - task: Docker@2
+    inputs:
+      containerRegistry: 'conexion con docker hub'
+      repository: 'dvilchesbcn/pet-clinic'
+      command: 'push'
+      tags: 'latest'
